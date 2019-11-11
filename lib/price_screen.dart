@@ -62,16 +62,16 @@ class _PrintScreenState extends State<PriceScreen> {
   }
 
   List<DropdownMenuItem> getDropdownItems() {
-    List<DropdownMenuItem<String>> dropdownItems = [];
+    List<DropdownMenuItem> dropdownItems = [];
 
-    for (String currency in currenciesList) {
-      var newItem = DropdownMenuItem(
-        child: Text(currency),
-        value: currency,
-      );
-
-      dropdownItems.add(newItem);
-    }
+    dropdownItems = currenciesList
+        .map(
+          (currency) => DropdownMenuItem<String>(
+            child: Text(currency),
+            value: currency,
+          ),
+        )
+        .toList();
 
     return dropdownItems;
   }
